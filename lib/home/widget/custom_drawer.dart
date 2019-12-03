@@ -49,19 +49,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   onTap: () => setPage(0, context),
                 ),
                 ListTile(
-                  leading: Icon(Icons.landscape),
-                  title: Text('Categorias'),
-                  onTap: () => setPage(1, context),
-                ),
-                ListTile(
                   leading: Icon(Icons.store),
                   title: Text('Lojas'),
-                  onTap: () => setPage(2, context),
+                  onTap: () => setPage(1, context),
                 ),
                 ListTile(
                   leading: Icon(Icons.mail),
                   title: Text('Contato'),
-                  onTap: () => setPage(3, context),
+                  onTap: () => setPage(2, context),
                 ),
               ],
             ),

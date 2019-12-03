@@ -12,6 +12,12 @@ class HomeBloc extends BlocBase {
   Stream<int> get streamIndexPage => _controller.stream;
   get setPage => _controller.sink.add;
 
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.close();
+  }
+
   HomeBloc() {
     _firestore = Firestore.instance;
   }

@@ -1,6 +1,8 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/home/widget/custom_drawer.dart';
+import 'package:flutter_ecommerce/product/product_page.dart';
 import 'package:flutter_ecommerce/shared/model/cartegory_model.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -49,10 +51,18 @@ class _HomeCategoriesPageState extends State<HomeCategoriesPage> {
                       crossAxisCount: 2,
                       itemCount: categories.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return FadeInImage.memoryNetwork(
-                          image: categories[index].image.imageUrl,
-                          placeholder: kTransparentImage,
-                          fit: BoxFit.cover,
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(CupertinoPageRoute(
+                                builder: (_) => ProductPage(
+                                      category: categories[index],
+                                    )));
+                          },
+                          child: FadeInImage.memoryNetwork(
+                            image: categories[index].image.imageUrl,
+                            placeholder: kTransparentImage,
+                            fit: BoxFit.cover,
+                          ),
                         );
                       },
                       staggeredTileBuilder: (int index) {

@@ -1,6 +1,7 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/home/widget/custom_drawer.dart';
+import 'package:flutter_ecommerce/home/pages/contact_page.dart';
+import 'package:flutter_ecommerce/home/pages/market_page.dart';
 
 import 'home_bloc.dart';
 import 'pages/home_categories_page.dart';
@@ -25,30 +26,7 @@ class _HomePageState extends State<HomePage> {
     return PageView(
       physics: NeverScrollableScrollPhysics(),
       controller: pageController,
-      children: <Widget>[
-        HomeCategoriesPage(),
-        Scaffold(
-          drawer: CustomDrawer(),
-          appBar: AppBar(),
-          body: Container(
-            child: Text('Categoria'),
-          ),
-        ),
-        Scaffold(
-          drawer: CustomDrawer(),
-          appBar: AppBar(),
-          body: Container(
-            child: Text('Lojas'),
-          ),
-        ),
-        Scaffold(
-          drawer: CustomDrawer(),
-          appBar: AppBar(),
-          body: Container(
-            child: Text('Contato'),
-          ),
-        ),
-      ],
+      children: <Widget>[HomeCategoriesPage(), MarketPage(), ContactPage()],
     );
   }
 }
